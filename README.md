@@ -1,7 +1,13 @@
 # alezha128.github.io
 Greetings! I am alezha
 
+Learning how to use this site!
 
-alezha128.github.io/arriveguardian
+Hopkins MS, MAC, CYS
 
+Hobbies: Reading, Violin, Piano
+
+Subjects: Math, Physics
+
+Yayyy!!!
 
