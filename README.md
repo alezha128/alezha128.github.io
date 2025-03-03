@@ -1,14 +1,14 @@
 # alezha128
-Greetings! I am alezha
+Hi
 
-Learning how to use this website!!!
-
-Hopkins MS, MAC, CYS
+Hopkins, MAC, CYS
 
 Hobbies: Reading, Violin, Piano
 
 Subjects: Physics, Math
 
-Yippeeeee!!!
+Geo is superior
+
+Yayyy!!!
 
 
