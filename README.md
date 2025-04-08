@@ -1,15 +1,17 @@
-theme: jekyll-theme-time-machine
-# alezha128
-Hi
+<div style="background-color: black; color: white; padding: 1em; font-family: sans-serif;">
 
-Hopkins, MAC, CYS
+<h1>alezha128</h1>
 
-Hobbies: Reading, Violin, Piano
+<p>Hi</p>
 
-Subjects: Physics, Math
+<p>Hopkins, MAC, CYS</p>
 
-Geo is superior
+<p>Hobbies: Reading, Violin, Piano</p>
 
-Yayyy!!!
+<p>Subjects: Physics, Math</p>
 
+<p>Geo is superior</p>
 
+<p>Yayyy!!!</p>
+
+</div>
