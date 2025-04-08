@@ -10,5 +10,3 @@ Hopkins, MAC, CYS
 **Hobbies:** Reading, Violin, Piano  
 **Subjects:** Physics, Math  
 
-> Geo is superior  
-Yayyy!!!
