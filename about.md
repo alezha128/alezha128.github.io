@@ -6,4 +6,4 @@ permalink: /about.html
 
 # About Me
 
-Hi
+Get out
