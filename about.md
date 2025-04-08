@@ -6,7 +6,7 @@ permalink: /about.html
 
 # About Me
 
-Hi  
+
 Hopkins, MAC, CYS  
 **Hobbies:** Reading, Violin, Piano  
 **Subjects:** Physics, Math  
