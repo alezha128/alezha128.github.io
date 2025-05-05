@@ -1,9 +1,11 @@
 ---
 layout: default
-title: Stuff
-permalink: /stuff.html
+title: unorz
+permalink: /unorz.html
 ---
 
-# Stuff
+# Not orz
 
-Just some random stuff
+orz
+ORZ
+OTL
