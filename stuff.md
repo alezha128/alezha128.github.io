@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Contacts
-permalink: /stuff.html
+permalink: /contacts.html
 ---
 
 # Contacts
