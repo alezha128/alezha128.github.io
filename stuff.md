@@ -1,11 +1,10 @@
 ---
 layout: default
 title: unorz
-permalink: /unorz.html
+permalink: /stuff.html
 ---
 
-# Not orz
-
-orz
+# Stuff
+~~orz
 ORZ
-OTL
+OTL~~
