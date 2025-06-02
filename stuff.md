@@ -1,7 +1,7 @@
 ---
 layout: default
-title: unorz
-permalink: /stuff.html
+title: Contacts
+permalink: /contacts.html
 ---
 
 # Stuff
