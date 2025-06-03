@@ -5,33 +5,51 @@
   <title>{{ page.title }}</title>
   <style>
     body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    header {
       background-color: black;
       color: white;
-      font-family: sans-serif;
       padding: 2em;
     }
+
     nav {
       margin-bottom: 1em;
     }
+
     nav a {
       color: lightblue;
       margin-right: 1em;
       text-decoration: none;
     }
+
     hr {
       border: none;
       border-top: 1px solid #444;
       margin: 1em 0;
     }
+
+    main {
+      background-color: #88C98E; /* light green */
+      color: black;
+      padding: 2em;
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/about.html">About</a>
-    <a href="/contacts.html">Contacts</a>
-  </nav>
-  <hr>
-  {{ content }}
+  <header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/contacts.html">Contacts</a>
+    </nav>
+    <hr>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
 </body>
 </html>
