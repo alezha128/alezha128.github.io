@@ -7,11 +7,8 @@
     body {
       margin: 0;
       font-family: sans-serif;
-    }
-
-    header {
-      background-color: black;
-      color: white;
+      background-color: #76B87D; /* slightly darker green */
+      color: black;
       padding: 2em;
     }
 
@@ -20,36 +17,26 @@
     }
 
     nav a {
-      color: lightblue;
+      color: darkblue;
       margin-right: 1em;
       text-decoration: none;
+      font-weight: bold;
     }
 
     hr {
       border: none;
-      border-top: 1px solid #444;
+      border-top: 1px solid #555;
       margin: 1em 0;
-    }
-
-    main {
-      background-color: #88C98E; /* light green */
-      color: black;
-      padding: 2em;
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/about.html">About</a>
-      <a href="/contacts.html">Contacts</a>
-    </nav>
-    <hr>
-  </header>
-
-  <main>
-    {{ content }}
-  </main>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about.html">About</a>
+    <a href="/contacts.html">Contacts</a>
+  </nav>
+  <hr>
+  {{ content }}
 </body>
 </html>
