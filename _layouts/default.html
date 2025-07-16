@@ -44,8 +44,7 @@
   <hr>
   {{ content }}
 
-  <!-- Donut Rain Canvas -->
-  <canvas id="donutCanvas" style="position:fixed;top:0;left:0;pointer-events:none;z-index:999;"></canvas>
+  <canvas id="donutCanvas" style="position:fixed;top:0;left:0;pointer-events:auto;z-index:999;"></canvas>
   <script>
     const canvas = document.getElementById('donutCanvas');
     const ctx = canvas.getContext('2d');
@@ -56,19 +55,20 @@
 
     let donuts = [];
 
-    function Donut() {
-      this.x = Math.random() * width;
-      this.y = -50;
-      this.size = 40 + Math.random() * 20;
-      this.speed = 0.5 + Math.random() * 1.5;
+    function Donut(x = Math.random() * width, y = -60) {
+      this.x = x;
+      this.y = y;
+      this.size = 60 + Math.random() * 40; 
+      this.speed = 0.5 + Math.random() * 1.2;
       this.rotation = Math.random() * 2 * Math.PI;
       this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+      this.opacity = 1;
       this.img = new Image();
-      this.img.src = 'https://i.imgur.com/n9eF64v.png';
+      this.img.src = 'https://i.imgur.com/n9eF64v.png'; 
     }
 
-    function addDonut() {
-      donuts.push(new Donut());
+    function addDonut(x, y) {
+      donuts.push(new Donut(x, y));
     }
 
     function animate() {
@@ -76,19 +76,25 @@
       donuts.forEach((donut, index) => {
         donut.y += donut.speed;
         donut.rotation += donut.rotationSpeed;
+
+        let progress = (donut.y + 60) / height;
+        donut.opacity = Math.max(0, 1 - progress);
+
         ctx.save();
+        ctx.globalAlpha = donut.opacity;
         ctx.translate(donut.x, donut.y);
         ctx.rotate(donut.rotation);
-        ctx.drawImage(donut.img, -donut.size/2, -donut.size/2, donut.size, donut.size);
+        ctx.drawImage(donut.img, -donut.size / 2, -donut.size / 2, donut.size, donut.size);
         ctx.restore();
-        if (donut.y > height + 50) {
+
+        if (donut.y > height + 60 || donut.opacity <= 0) {
           donuts.splice(index, 1);
         }
       });
       requestAnimationFrame(animate);
     }
 
-    setInterval(addDonut, 300);
+    setInterval(() => addDonut(), 600);
     animate();
 
     window.addEventListener('resize', () => {
@@ -97,7 +103,15 @@
       canvas.width = width;
       canvas.height = height;
     });
+
+    canvas.addEventListener('click', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      for (let i = 0; i < 4; i++) {
+        addDonut(x, y);
+      }
+    });
   </script>
 </body>
 </html>
-
