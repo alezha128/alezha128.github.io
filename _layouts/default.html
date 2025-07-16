@@ -55,25 +55,27 @@
 
     let donuts = [];
 
-    function Donut(x = Math.random() * width, y = -60) {
+    function Donut(x = Math.random() * width, y = -60, xSpeed = 0) {
       this.x = x;
       this.y = y;
-      this.size = 60 + Math.random() * 40; 
+      this.xSpeed = xSpeed; 
+      this.size = 60 + Math.random() * 40;
       this.speed = 0.5 + Math.random() * 1.2;
       this.rotation = Math.random() * 2 * Math.PI;
       this.rotationSpeed = (Math.random() - 0.5) * 0.02;
       this.img = new Image();
-      this.img.src = 'https://i.imgur.com/n9eF64v.png'; 
+      this.img.src = 'https://i.imgur.com/n9eF64v.png';
     }
 
-    function addDonut(x, y) {
-      donuts.push(new Donut(x, y));
+    function addDonut(x, y, xDrift = 0) {
+      donuts.push(new Donut(x, y, xDrift));
     }
 
     function animate() {
       ctx.clearRect(0, 0, width, height);
       donuts.forEach((donut, index) => {
         donut.y += donut.speed;
+        donut.x += donut.xSpeed;
         donut.rotation += donut.rotationSpeed;
 
         ctx.save();
@@ -83,7 +85,7 @@
         ctx.drawImage(donut.img, -donut.size / 2, -donut.size / 2, donut.size, donut.size);
         ctx.restore();
 
-        if (donut.y > height + 60) {
+        if (donut.y > height + 60 || donut.x < -100 || donut.x > width + 100) {
           donuts.splice(index, 1);
         }
       });
@@ -105,7 +107,8 @@
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       for (let i = 0; i < 4; i++) {
-        addDonut(x, y);
+        const drift = (Math.random() - 0.5) * 2; 
+        addDonut(x, y, drift);
       }
     });
   </script>
