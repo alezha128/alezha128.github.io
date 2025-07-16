@@ -62,7 +62,6 @@
       this.speed = 0.5 + Math.random() * 1.2;
       this.rotation = Math.random() * 2 * Math.PI;
       this.rotationSpeed = (Math.random() - 0.5) * 0.02;
-      this.opacity = 1;
       this.img = new Image();
       this.img.src = 'https://i.imgur.com/n9eF64v.png'; 
     }
@@ -77,17 +76,14 @@
         donut.y += donut.speed;
         donut.rotation += donut.rotationSpeed;
 
-        let progress = (donut.y + 60) / height;
-        donut.opacity = Math.max(0, 1 - progress);
-
         ctx.save();
-        ctx.globalAlpha = donut.opacity;
+        ctx.globalAlpha = 1;
         ctx.translate(donut.x, donut.y);
         ctx.rotate(donut.rotation);
         ctx.drawImage(donut.img, -donut.size / 2, -donut.size / 2, donut.size, donut.size);
         ctx.restore();
 
-        if (donut.y > height + 60 || donut.opacity <= 0) {
+        if (donut.y > height + 60) {
           donuts.splice(index, 1);
         }
       });
