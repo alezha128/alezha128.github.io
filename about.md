@@ -7,7 +7,7 @@ permalink: /about.html
 # About Me
 
 
-~~Hopkins~~ MSJHS, MAC, CYS  
+MSJ, MAC, GSYO  
 **Hobbies:** Reading, Violin, Piano  
 **Subjects:** Physics, Math, ~~bio~~
 
