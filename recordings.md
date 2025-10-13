@@ -1,104 +1,124 @@
-<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>lock tf in - Quiz</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Game</title>
   <style>
-    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial; background:#f7f7f8; color:#111; display:flex; align-items:center; justify-content:center; min-height:100vh; margin:0; }
-    .card { background:#fff; padding:20px; border-radius:10px; box-shadow:0 6px 24px rgba(0,0,0,0.08); width:820px; max-width:95%; }
-    pre.console { background:#0b1220; color:#e6f1ff; padding:12px; border-radius:6px; min-height:120px; margin:0 0 12px 0; white-space:pre-wrap; font-family:monospace; }
-    .prompt { font-weight:600; margin:8px 0; }
-    input[type="text"]{ width:100%; padding:8px 10px; font-size:16px; border-radius:6px; border:1px solid #ddd; box-sizing:border-box; }
-    button{ margin-top:8px; padding:8px 12px; border-radius:8px; border:0; background:#0b6cff; color:white; cursor:pointer; }
+    body {
+      font-family: monospace;
+      background-color: #111;
+      color: #0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #console {
+      width: 90%;
+      max-width: 800px;
+      background: #000;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0f0;
+      overflow-y: auto;
+      height: 70vh;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background: #222;
+      border: 1px solid #0f0;
+      color: #0f0;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 10px;
+      background: #0f0;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #9f9;
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <pre class="console" id="console"></pre>
-
-    <div class="prompt" id="question"></div>
-    <input type="text" id="answerInput" autocomplete="off" />
-    <div style="display:flex; gap:8px;"><button id="submitBtn">Submit Answer</button><button id="skipBtn">Skip (show answer)</button></div>
-  </div>
+  <div id="console"></div>
+  <input type="text" id="answerInput" placeholder="Your answer here..." />
+  <button id="submitBtn">Submit</button>
 
   <script>
-    function toLower(s){ return s.toLowerCase(); }
+    const consoleDiv = document.getElementById('console');
+    const answerInput = document.getElementById('answerInput');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function println(text = '') {
+      consoleDiv.innerHTML += text + '<br>';
+      consoleDiv.scrollTop = consoleDiv.scrollHeight;
+    }
+
+    function toLower(s) {
+      return s.toLowerCase();
+    }
 
     const quiz = [
-        {prompt: "Satire comes from the Latin word 'satura' meaning ______.", answer: "poetic medley"},
-        {prompt: "When did the Simpsons premiere? (1989 / 1999 / 1979 / 2009)", answer: "1989"}
-        // ... rest of quiz unchanged
+      { prompt: "Satire comes from the Latin word 'satura' meaning ______.", answer: "poetic medley" },
+      { prompt: "When did the Simpsons premiere? (1989 / 1999 / 1979 / 2009)", answer: "1989" },
+      { prompt: "One of the satirist’s central tools has always been __________.", answer: "exaggeration" }
+      // ... all other questions would continue here ...
     ];
 
-    const TOTAL = quiz.length;
+    let total = quiz.length;
     let correctCount = 0;
-    let pool = quiz.slice();
 
-    const consoleEl = document.getElementById('console');
-    const questionEl = document.getElementById('question');
-    const inputEl = document.getElementById('answerInput');
-    const submitBtn = document.getElementById('submitBtn');
-    const skipBtn = document.getElementById('skipBtn');
+    println("lock tf in");
+    println("btw not case sensitive");
+    println('');
 
-    appendConsole("lock tf in\n");
-    appendConsole("btw not case sensitive" + TOTAL + "\n");
+    let currentIndex = Math.floor(Math.random() * quiz.length);
 
-    function appendConsole(text){
-      consoleEl.textContent += text + "\n";
-      consoleEl.scrollTop = consoleEl.scrollHeight;
-    }
-
-    function randomIndex(n){
-      return Math.floor(Math.random()*n);
-    }
-
-    function nextQuestion(){
-      if(pool.length === 0){
-        appendConsole(`ok ${correctCount} / ${TOTAL}`);
-        appendConsole("lock in");
-        questionEl.textContent = "Done.";
-        inputEl.disabled = true;
+    function askQuestion() {
+      if (quiz.length === 0) {
+        println(`ok ${correctCount} / ${total}`);
+        println('lock in');
         submitBtn.disabled = true;
-        skipBtn.disabled = true;
+        answerInput.disabled = true;
         return;
       }
-      const idx = randomIndex(pool.length);
-      current = {index: idx, item: pool[idx]};
-      questionEl.textContent = current.item.prompt;
-      inputEl.value = "";
-      inputEl.focus();
+      println(quiz[currentIndex].prompt);
     }
 
-    let current = null;
+    submitBtn.addEventListener('click', () => {
+      const userAnswer = answerInput.value.trim();
+      if (!userAnswer) return;
 
-    submitBtn.addEventListener('click', ()=>{
-      if(!current) return;
-      const userAnswer = inputEl.value.trim();
-      if(toLower(userAnswer) === toLower(current.item.answer)){
-        appendConsole('correct\n');
-        pool.splice(current.index, 1);
+      if (toLower(userAnswer) === toLower(quiz[currentIndex].answer)) {
+        println('correct\n');
+        quiz.splice(currentIndex, 1);
         correctCount++;
       } else {
-        appendConsole('incorrect. correct answer was ' + current.item.answer + '\n');
+        println(`incorrect. correct answer was ${quiz[currentIndex].answer}\n`);
       }
-      nextQuestion();
-    });
 
-    inputEl.addEventListener('keydown', (e)=>{
-      if(e.key === 'Enter'){
-        e.preventDefault();
-        submitBtn.click();
+      answerInput.value = '';
+
+      if (quiz.length > 0) {
+        currentIndex = Math.floor(Math.random() * quiz.length);
+        askQuestion();
+      } else {
+        println(`ok ${correctCount} / ${total}`);
+        println('lock in');
       }
     });
 
-    skipBtn.addEventListener('click', ()=>{
-      if(!current) return;
-      appendConsole('incorrect. correct answer was ' + current.item.answer + '\n');
-      nextQuestion();
-    });
-
-    nextQuestion();
+    askQuestion();
   </script>
 </body>
 </html>
