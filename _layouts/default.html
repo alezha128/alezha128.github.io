@@ -44,84 +44,88 @@
   <hr>
   {{ content }}
 
-
-  <canvas id="donutCanvas" style="position:fixed;top:0;left:0;pointer-events:none;z-index:999;"></canvas>
+  <!-- Donut animation only on recordings page -->
   <script>
-    const canvas = document.getElementById('donutCanvas');
-    const ctx = canvas.getContext('2d');
-    let width = window.innerWidth;
-    let height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height;
+    if (window.location.pathname.endsWith("/recordings.html") || window.location.pathname === "/recordings/") {
+      const canvas = document.createElement('canvas');
+      canvas.id = "donutCanvas";
+      canvas.style = "position:fixed;top:0;left:0;pointer-events:none;z-index:999;";
+      document.body.appendChild(canvas);
 
-    let donuts = [];
-
-    function Donut(x = Math.random() * width, y = -60, xSpeed = 0) {
-      this.x = x;
-      this.y = y;
-      this.xSpeed = xSpeed;
-      this.size = 60 + Math.random() * 40;
-      this.speed = 0.5 + Math.random() * 1.2;
-      this.rotation = Math.random() * 2 * Math.PI;
-      this.rotationSpeed = (Math.random() - 0.5) * 0.02;
-      this.img = new Image();
-      this.img.src = 'https://i.imgur.com/n9eF64v.png';
-    }
-
-    function addDonut(x, y, xDrift = 0) {
-      donuts.push(new Donut(x, y, xDrift));
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, width, height);
-      donuts.forEach((donut, index) => {
-        donut.y += donut.speed;
-        donut.x += donut.xSpeed;
-        donut.rotation += donut.rotationSpeed;
-
-        ctx.save();
-        ctx.globalAlpha = 1;
-        ctx.translate(donut.x, donut.y);
-        ctx.rotate(donut.rotation);
-        ctx.drawImage(donut.img, -donut.size / 2, -donut.size / 2, donut.size, donut.size);
-        ctx.restore();
-
-        if (donut.y > height + 60 || donut.x < -100 || donut.x > width + 100) {
-          donuts.splice(index, 1);
-        }
-      });
-      requestAnimationFrame(animate);
-    }
-
-    setInterval(() => addDonut(), 600);
-    animate();
-
-    window.addEventListener('resize', () => {
-      width = window.innerWidth;
-      height = window.innerHeight;
+      const ctx = canvas.getContext('2d');
+      let width = window.innerWidth;
+      let height = window.innerHeight;
       canvas.width = width;
       canvas.height = height;
-    });
 
-    document.addEventListener('click', (e) => {
-      const rect = canvas.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      const clickY = e.clientY - rect.top;
+      let donuts = [];
 
-      for (let donut of donuts) {
-        const dx = clickX - donut.x;
-        const dy = clickY - donut.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < donut.size / 2) {
-
-          for (let i = 0; i < 4; i++) {
-            const drift = (Math.random() - 0.5) * 2;
-            addDonut(donut.x, donut.y, drift);
-          }
-          break; 
-        }
+      function Donut(x = Math.random() * width, y = -60, xSpeed = 0) {
+        this.x = x;
+        this.y = y;
+        this.xSpeed = xSpeed;
+        this.size = 60 + Math.random() * 40;
+        this.speed = 0.5 + Math.random() * 1.2;
+        this.rotation = Math.random() * 2 * Math.PI;
+        this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+        this.img = new Image();
+        this.img.src = 'https://i.imgur.com/n9eF64v.png';
       }
-    });
+
+      function addDonut(x, y, xDrift = 0) {
+        donuts.push(new Donut(x, y, xDrift));
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        donuts.forEach((donut, index) => {
+          donut.y += donut.speed;
+          donut.x += donut.xSpeed;
+          donut.rotation += donut.rotationSpeed;
+
+          ctx.save();
+          ctx.globalAlpha = 1;
+          ctx.translate(donut.x, donut.y);
+          ctx.rotate(donut.rotation);
+          ctx.drawImage(donut.img, -donut.size / 2, -donut.size / 2, donut.size, donut.size);
+          ctx.restore();
+
+          if (donut.y > height + 60 || donut.x < -100 || donut.x > width + 100) {
+            donuts.splice(index, 1);
+          }
+        });
+        requestAnimationFrame(animate);
+      }
+
+      setInterval(() => addDonut(), 600);
+      animate();
+
+      window.addEventListener('resize', () => {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+      });
+
+      document.addEventListener('click', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const clickY = e.clientY - rect.top;
+
+        for (let donut of donuts) {
+          const dx = clickX - donut.x;
+          const dy = clickY - donut.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < donut.size / 2) {
+            for (let i = 0; i < 4; i++) {
+              const drift = (Math.random() - 0.5) * 2;
+              addDonut(donut.x, donut.y, drift);
+            }
+            break; 
+          }
+        }
+      });
+    }
   </script>
 </body>
 </html>
