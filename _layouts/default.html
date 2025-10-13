@@ -34,7 +34,7 @@
     }
   </style>
 </head>
-<body>
+<body class="{{ page.slug }}"> <!-- add page slug class -->
   <nav>
     <a href="/">Home</a>
     <a href="/about.html">About</a>
@@ -44,9 +44,9 @@
   <hr>
   {{ content }}
 
-  <!-- Donut animation only on recordings page -->
+  <!-- Donut animation only if body has class 'recordings' -->
   <script>
-    if (window.location.pathname.endsWith("/recordings.html") || window.location.pathname === "/recordings/") {
+    if (document.body.classList.contains('recordings')) {
       const canvas = document.createElement('canvas');
       canvas.id = "donutCanvas";
       canvas.style = "position:fixed;top:0;left:0;pointer-events:none;z-index:999;";
