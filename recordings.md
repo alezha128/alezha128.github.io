@@ -11,18 +11,18 @@
     .prompt { font-weight:600; margin:8px 0; }
     input[type="text"]{ width:100%; padding:8px 10px; font-size:16px; border-radius:6px; border:1px solid #ddd; box-sizing:border-box; }
     button{ margin-top:8px; padding:8px 12px; border-radius:8px; border:0; background:#0b6cff; color:white; cursor:pointer; }
+    .meta { color:#666; font-size:13px; margin-bottom:8px; }
   </style>
 </head>
 <body>
   <div class="card">
+    <div class="meta">This page is a direct port of the provided C++ quiz program to JavaScript for GitHub Pages.</div>
     <pre class="console" id="console"></pre>
 
     <div class="prompt" id="question"></div>
     <input type="text" id="answerInput" autocomplete="off" />
-    <div style="display:flex; gap:8px;">
-      <button id="submitBtn">Submit Answer</button>
-      <button id="skipBtn">Skip (show answer)</button>
-    </div>
+    <div style="display:flex; gap:8px;"><button id="submitBtn">Submit Answer</button><button id="skipBtn">Skip (show answer)</button></div>
+    <div style="margin-top:12px; color:#444; font-size:14px;">Progress: <span id="progress">0</span>/<span id="total">0</span></div>
   </div>
 
   <script>
@@ -171,16 +171,23 @@
     const inputEl = document.getElementById('answerInput');
     const submitBtn = document.getElementById('submitBtn');
     const skipBtn = document.getElementById('skipBtn');
+    const progressEl = document.getElementById('progress');
+    const totalEl = document.getElementById('total');
+
+    totalEl.textContent = TOTAL;
+    progressEl.textContent = TOTAL - pool.length;
 
     appendConsole("lock tf in\n");
-    appendConsole("btw not case sensitive " + TOTAL + "\n");
+    appendConsole("btw not case sensitive" + TOTAL + "\n");
 
     function appendConsole(text){
       consoleEl.textContent += text + "\n";
       consoleEl.scrollTop = consoleEl.scrollHeight;
     }
 
-    function randomIndex(n){ return Math.floor(Math.random()*n); }
+    function randomIndex(n){
+      return Math.floor(Math.random()*n);
+    }
 
     function nextQuestion(){
       if(pool.length === 0){
@@ -197,6 +204,7 @@
       questionEl.textContent = current.item.prompt;
       inputEl.value = "";
       inputEl.focus();
+      progressEl.textContent = TOTAL - pool.length;
     }
 
     let current = null;
@@ -214,8 +222,11 @@
       nextQuestion();
     });
 
-    inputEl.addEventListener('keydown', e=>{
-      if(e.key === 'Enter'){ e.preventDefault(); submitBtn.click(); }
+    inputEl.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        submitBtn.click();
+      }
     });
 
     skipBtn.addEventListener('click', ()=>{
