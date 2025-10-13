@@ -28,7 +28,7 @@
     function toLower(s){ return s.toLowerCase(); }
 
     const quiz = [
-        // ------------------------- SATIRE QUESTIONS -------------------------
+        // ------------------------- satire -------------------------
         {prompt: "Satire comes from the Latin word 'satura' meaning ______.", answer: "poetic medley"},
         {prompt: "When did the Simpsons premiere? (1989 / 1999 / 1979 / 2009)", answer: "1989"},
         {prompt: "One of the satirist’s central tools has always been __________.", answer: "exaggeration"},
@@ -37,7 +37,7 @@
         {prompt: "The plastic limits of Springfield…", answer: "circumscribe American social relations in their entirety"},
         {prompt: "The show Daria is known for its nihilism. As a result, viewers are becoming ______.", answer: "nihilistic"},
 
-        // ------------------------- EARNEST VOCAB -------------------------
+        // ------------------------- earnest  -------------------------
         {prompt: "I have always suspected you of being a confirmed and secret ________.", answer: "bunburyist"},
         {prompt: "Why all these cups? Why ________? Why such reckless extravagance?", answer: "cucumber sandwiches"},
         {prompt: "Never met such a ______... Lady Bracknell is one.", answer: "gorgon"},
@@ -82,7 +82,7 @@
         {prompt: "Donating money, property, or time", answer: "philanthropy"},
         {prompt: "Small, three-legged table", answer: "trivet"},
 
-        // ------------------------- LORD OF THE FLIES VOCAB -------------------------
+        // ------------------------- lotf -------------------------
         {prompt: "__________they squared up to each other but kept just out of fighting distance.", answer: "truculently"},
         {prompt: "The _______ of MLK Jr is celebrated on his birthday every January.", answer: "martyrdom"},
         {prompt: "She pushed over the _______, causing the fragile statue to fall.", answer: "plinth"},
@@ -103,7 +103,7 @@
         {prompt: "The ________ ninja snuck into his room while he was sleeping.", answer: "furtive"},
         {prompt: "Ralph blew into the ______ to gather the boys for the meeting.", answer: "conch"},
 
-        // ------------------------- CROSSWORD VOCAB -------------------------
+        // ------------------------- rando/sat -------------------------
         {prompt: "Gaston’s _______ is LeFou.", answer: "sycophant"},
         {prompt: "sweet sounding", answer: "mellifluous"},
         {prompt: "The ______ unit was overrun during Covid-19.", answer: "triage"},
