@@ -15,7 +15,7 @@
 </head>
 <body>
   <div class="card">
-    <div class="meta">This page is a direct port of the provided C++ quiz program to JavaScript for GitHub Pages.</div>
+    <div class="meta">v 1.3 </div>
     <pre class="console" id="console"></pre>
 
     <div class="prompt" id="question"></div>
