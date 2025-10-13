@@ -176,8 +176,8 @@
     totalEl.textContent = TOTAL;
     progressEl.textContent = TOTAL - pool.length;
 
-    appendConsole("lock tf in\n");
-    appendConsole("btw not case sensitive" + TOTAL + "\n");
+    appendConsole("LOCK IN\n");
+    appendConsole("btw not case sensitive");
 
     function appendConsole(text){
       consoleEl.textContent += text + "\n";
