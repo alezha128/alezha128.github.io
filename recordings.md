@@ -110,7 +110,7 @@
         {prompt: "The ______ president gave his children high-ranking positions in the government.", answer: "nepotistic"},
         {prompt: "extremely harsh punishment", answer: "draconian"},
         {prompt: "I’m trying to grow your _____ by giving you new vocab words.", answer: "lexicon"},
-        {prompt: "The exiled king became a _______ in his homeland.", answer: "pariah"},
+        {prompt: "The exiled king became a _______ in his homeland.", answer: "persona non grata"},
         {prompt: "Hitler is the ________ anti-Semite.", answer: "quintessential"},
         {prompt: "College should be a _____", answer: "meritocracy"},
         {prompt: "Problems that figuratively & literally take ahold of the boys", answer: "creepers"},
@@ -179,6 +179,8 @@
     appendConsole("LOCK IN\n");
     appendConsole("btw not case sensitive");
     appendConsole("use enter to submit");
+    appendConsole("be aware of errors");
+
 
 
     function appendConsole(text){
