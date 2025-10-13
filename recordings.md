@@ -178,6 +178,8 @@
 
     appendConsole("LOCK IN\n");
     appendConsole("btw not case sensitive");
+    appendConsole("use enter to submit");
+
 
     function appendConsole(text){
       consoleEl.textContent += text + "\n";
