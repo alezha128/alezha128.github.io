@@ -15,7 +15,7 @@
 </head>
 <body>
   <div class="card">
-    <div class="meta">v 1.3 </div>
+    <div class="meta">v 1.3</div>
     <pre class="console" id="console"></pre>
 
     <div class="prompt" id="question"></div>
