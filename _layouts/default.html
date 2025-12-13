@@ -34,7 +34,7 @@
     }
   </style>
 </head>
-<body class="{{ page.slug }}"> <!-- add page slug class -->
+<body class="{{ page.slug }}">
   <nav>
     <a href="/">Home</a>
     <a href="/about.html">About</a>
@@ -44,9 +44,9 @@
   <hr>
   {{ content }}
 
-  <!-- Donut animation only if body has class 'recordings' -->
+  <!-- Donut animation now runs on all pages -->
   <script>
-    if (document.body.classList.contains('recordings')) {
+    { // always run donuts, removed class check
       const canvas = document.createElement('canvas');
       canvas.id = "donutCanvas";
       canvas.style = "position:fixed;top:0;left:0;pointer-events:none;z-index:999;";
