@@ -1,7 +1,7 @@
 ---
 layout: default
-title: sigma
-permalink: /archive2.html
+title: archive
+permalink: /archive.html
 ---
 
 <html lang="en">
