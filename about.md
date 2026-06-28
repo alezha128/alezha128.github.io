@@ -7,10 +7,8 @@ permalink: /about.html
 # About Me
 
 
-MSJ, MAC, GSYO  
-**Hobbies:** Reading, Violin, Piano  
-**Subjects:** Physics, Math, ~~bio~~
-
-https://youtu.be/h1FhPpG6DqY
+  
+**6** 7
+**4** 1
 
 Have a nice day
