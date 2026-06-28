@@ -120,6 +120,30 @@ permalink: /archive.html
 </head>
 
 <body>
+  <script>
+  window.addEventListener("load", () => {
+    // remove any canvas/particles/donut elements already on page
+    document.querySelectorAll("*").forEach(el => {
+      if (
+        (el.className && el.className.toLowerCase().includes("donut")) ||
+        (el.id && el.id.toLowerCase().includes("donut"))
+      ) {
+        el.remove();
+      }
+    });
+
+    if (window.requestAnimationFrame) {
+      let id = window.requestAnimationFrame(() => {});
+      while (id--) cancelAnimationFrame(id);
+    }
+
+    let highestId = setInterval(() => {}, 9999);
+    for (let i = 0; i < highestId; i++) {
+      clearInterval(i);
+    }
+  });
+  
+</script>
   <div class="card">
     <div class="meta">v 1.4 </div>
 
