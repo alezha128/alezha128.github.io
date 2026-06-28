@@ -121,7 +121,7 @@ permalink: /archive2.html
 
 <body>
   <div class="card">
-    <div class="meta">v 1.4 neon</div>
+    <div class="meta">v 1.4 </div>
 
     <pre class="console" id="console"></pre>
 
