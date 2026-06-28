@@ -11,4 +11,4 @@ permalink: /about.html
 **6** 7
 **4** 1
 
-Have a nice day
+Have a nice day!
