@@ -64,7 +64,7 @@
   <a href="/about.html">About</a>
   <a href="/contacts.html">Contacts</a>
   <a href="/archive.html">Archive</a>
-  <button id="donutToggle">Turn Donuts Off</button>
+  <button id="donutToggle">Turn Donuts On</button>
 </nav>
   <hr>
   {{ content }}
@@ -83,7 +83,7 @@
       canvas.height = height;
 
       let donuts = [];
-      let donutsEnabled = true;
+      let donutsEnabled = false;
 
       function Donut(x = Math.random() * width, y = -60, xSpeed = 0) {
         this.x = x;
