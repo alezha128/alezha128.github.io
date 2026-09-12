@@ -83,6 +83,7 @@
       canvas.height = height;
 
       let donuts = [];
+      let donutsEnabled = true;
 
       function Donut(x = Math.random() * width, y = -60, xSpeed = 0) {
         this.x = x;
@@ -121,8 +122,11 @@
         requestAnimationFrame(animate);
       }
 
-      setInterval(() => addDonut(), 600);
-      animate();
+      setInterval(() => {
+        if (donutsEnabled) {
+          addDonut();
+      }
+    }, 600);
 
       window.addEventListener('resize', () => {
         width = window.innerWidth;
@@ -150,6 +154,19 @@
         }
       });
     }
+    const donutToggle = document.getElementById("donutToggle");
+
+      donutToggle.addEventListener("click", () => {
+      donutsEnabled = !donutsEnabled;
+
+      if (donutsEnabled) {
+        donutToggle.textContent = "Turn Donuts Off";
+        } else {
+        donutToggle.textContent = "Turn Donuts On";
+        donuts.length = 0;
+      }
+    });
+    
   </script>
 </body>
 </html>
