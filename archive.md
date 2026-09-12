@@ -122,7 +122,6 @@ permalink: /archive.html
 <body>
   <script>
   window.addEventListener("load", () => {
-    // remove any canvas/particles/donut elements already on page
     document.querySelectorAll("*").forEach(el => {
       if (
         (el.className && el.className.toLowerCase().includes("donut")) ||
@@ -307,7 +306,7 @@ inputEl.addEventListener("keydown",(e)=>{
   if(e.key === "Enter") submitBtn.click();
 });
 
-appendConsole("LOCK IN NEON MODE");
+appendConsole("LOCK IN");
 appendConsole("not case sensitive");
 
 nextQuestion();
