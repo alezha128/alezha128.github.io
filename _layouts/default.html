@@ -7,13 +7,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #5D9F67; 
-      color: white;
-      padding: 2em;
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #5D9F67; 
+    color: white;
+    padding: 2em;
+  }
+
+  body {
+    animation: pageFadeIn 0.7s ease-out;
+  }
+
+  @keyframes pageFadeIn {
+    from {
+      opacity: 0;
     }
+    to {
+      opacity: 1;
+    }
+  }
 
     
     nav {
