@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>{{ page.title }}</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <style>
+<style>
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -28,31 +20,43 @@
     }
   }
 
-    
-    nav {
-      margin-bottom: 1em;
-    }
+  nav {
+    margin-bottom: 1em;
+  }
 
-    nav a {
-      color: #e0f7ea; 
-      margin-right: 1em;
-      text-decoration: none;
-      font-weight: bold;
-    }
+  nav a {
+    color: #e0f7ea; 
+    margin-right: 1em;
+    text-decoration: none;
+    font-weight: bold;
+  }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+  nav a:hover {
+    text-decoration: underline;
+  }
 
-    hr {
-      border: none;
-      border-top: 1px solid #b2d8c2;
-      margin: 1em 0;
-    }
-  </style>
-</head>
-<body class="{{ page.slug }}">
+  #donutToggle {
+    background: transparent;
+    color: #e0f7ea;
+    border: 1px solid #e0f7ea;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 0.5em;
+  }
 
+  #donutToggle:hover {
+    opacity: 0.75;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #b2d8c2;
+    margin: 1em 0;
+  }
+</style>
 
   
 <nav>
