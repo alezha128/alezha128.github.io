@@ -6,9 +6,5 @@ permalink: /about.html
 
 # About Me
 
-
-  
-**6** 7
-**4** 1
-
-Have a nice day!
+I'll update this in the near future
+I promise
